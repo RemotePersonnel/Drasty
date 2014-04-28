@@ -26,6 +26,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+  <script>
+     var _ROOT = "<?php echo $this->Html->url('/', true); ?>";
+  </script>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -36,6 +39,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 		/* Custom styles for this template */
 		echo $this->Html->css('custom');
+    echo $this->Html->css('responsive-custom');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -61,11 +65,17 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <li><a href="#">Features</a></li>
             <li><a href="#">Pricing</a></li>
             <li><a href="#">Support</a></li>
-            <li><a href="#">Login</a></li>
+            <li><?php if($logged_in){
+                     echo $this->Html->link('Logout', array('controller'=>'users','action'=>'logout'));
+                      
+                    }else{
+                      echo $this->Html->link('Login', array('controller'=>'users','action'=>'login'));
+                    }
+                      ?></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
@@ -74,7 +84,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       <div class="row">
         
         <div class="col-sm-12 main">
-          	 <?php echo $this->Session->flash(); ?>
+          	 <?php echo $this->Session->flash(); ?>            
 			       <?php echo $this->fetch('content'); ?>
         </div>
       </div>

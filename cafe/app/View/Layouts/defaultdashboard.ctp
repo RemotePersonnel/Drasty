@@ -26,6 +26,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+  <script>
+    var _ROOT = "<?php echo $this->Html->url('/', true); ?>";    
+  </script>
 	<?php
 		echo $this->Html->meta('icon');
 
@@ -57,14 +60,21 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><?php echo $this->Html->link('Home', array('controller'=>'pages','action'=>'display','home')); ?></li>
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Customers</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><?php if($logged_in){
+                     echo $this->Html->link('Logout', array('controller'=>'users','action'=>'logout'));
+                      
+                    }else{
+                      echo $this->Html->link('Login', array('controller'=>'users','action'=>'login'));
+                    }
+                      ?></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
@@ -72,12 +82,25 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          Left Navigation
+          <?php if($logged_in)
+           echo $this->Html->link( "Add A New User",   array('controller'=>'users','action'=>'add') ).'<br>';
+            echo $this->Html->link( "Users",   array('controller'=>'users','action'=>'index') ).'<br>'; 
+            if($logged_in)
+            echo $this->Html->link( "Logout",   array('controller'=>'users','action'=>'logout') ); 
+          ?>
+          <br>
+          <?php 
+            if($this->Session->check('Auth.User')){
+            echo $this->Html->link( "Return to Dashboard",   array('controller'=>'dashboard','action'=>'index') ); 
+            
+            }else{
+            echo $this->Html->link( "Return to Login Screen",   array('action'=>'login') ); 
+            }
+            ?>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           	<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
+			     <?php echo $this->fetch('content'); ?>
         </div>
       </div>
     </div>
