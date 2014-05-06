@@ -52,6 +52,7 @@ class AppController extends Controller {
         	
 			$this->Auth->allow('display');
         	$this->Auth->allow('login');
+     
         	
 	        if ((isset($this->params['prefix']) && ($this->params['prefix'] == 'admin'))) {
 				$this->layout = 'admin';

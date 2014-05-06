@@ -5,26 +5,23 @@ class User extends AppModel {
 	
 	public $avatarUploadDir = 'img/avatars';
     
+	public $hasMany = array(
+        'Store' => array(
+            'className' => 'Store'
+        )
+    );
+
 	public $validate = array(
         'username' => array(
             'nonEmpty' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A username is required',
+                'rule' => array('email', true),
+                'message' => 'Please provide a valid email address.',
 				'allowEmpty' => false
             ),
-			'between' => array( 
-				'rule' => array('between', 5, 15), 
-				'required' => true, 
-				'message' => 'Usernames must be between 5 to 15 characters'
-			),
 			 'unique' => array(
 				'rule'    => array('isUniqueUsername'),
-				'message' => 'This username is already in use'
-			),
-			'alphaNumericDashUnderscore' => array(
-				'rule'    => array('alphaNumericDashUnderscore'),
-				'message' => 'Username can only be letters, numbers and underscores'
-			),
+				'message' => 'This email is already in use'
+			)
         ),
         'password' => array(
             'required' => array(
@@ -46,7 +43,7 @@ class User extends AppModel {
 				'rule' => array('equaltofield','password'),
 				'message' => 'Both passwords must match.'
 			)
-        ),
+        )/*,
 		
 		'email' => array(
 			'required' => array(
@@ -68,7 +65,7 @@ class User extends AppModel {
                 'message' => 'Please enter a valid role',
                 'allowEmpty' => false
             )
-        ),
+        )*/,
 		
 		
 		'password_update' => array(
@@ -85,7 +82,16 @@ class User extends AppModel {
 				'message' => 'Both passwords must match.',
 				'required' => false,
 			)
+        ),
+		
+		'store_number' => array(
+			'nonEmpty' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Please select number of stores.',
+				'allowEmpty' => false
+            )
         )
+
 
 		
     );
@@ -120,6 +126,8 @@ class User extends AppModel {
 			return true; 
 		}
     }
+   
+
 
 	/**
 	 * Before isUniqueEmail

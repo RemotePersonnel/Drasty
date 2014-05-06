@@ -737,3 +737,7 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+.no-padding{ padding:0px !important;}
+.col-md-6 .col-md-12{ padding:0px !important;}
+#store-detail-container .col-md-6{ width:50%; float:left;}
+#store-hours-container td{ height:50px;}

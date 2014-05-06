@@ -4,10 +4,14 @@
 <?php echo $this->Form->create('User');?>
     <fieldset>
         <legend><?php echo __('Add User'); ?></legend>
-        <?php echo $this->Form->input('username');
-		echo $this->Form->input('email');
-        echo $this->Form->input('password');
-		echo $this->Form->input('password_confirm', array('label' => 'Confirm Password *', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));
+        <?php 
+         echo $this->Form->input('store_name',array('label'=>'Store Name'));  
+        echo $this->Form->input('username',array('label'=>'Email Address'));
+		echo $this->Form->input('password');
+		/*echo $this->Form->input('password_confirm', array('label' => 'Confirm Password *', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password'));*/
+        echo $this->Form->input('store_number', array(
+            'options' => array('' => 'Number of Stores','1 store' => '1 store', '2-10' => '2-10', '10-30'=>'10-30', 'more than 30'=>'more than 30')
+        )); 
         echo $this->Form->input('role', array(
             'options' => array( 'Admin' => 'admin', 'Client' => 'client')
         ));

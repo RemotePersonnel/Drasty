@@ -4,8 +4,9 @@
     <thead>
 		<tr>
 			<th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
-			<th><?php echo $this->Paginator->sort('username', 'Username');?>  </th>
-			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
+			<th><?php echo $this->Paginator->sort('username', 'E-Mail');?>  </th>
+			<th><?php echo $this->Paginator->sort('store_name', 'Store Name');?></th>
+			<th><?php echo $this->Paginator->sort('store_number', 'Store Number');?></th>
 			<th><?php echo $this->Paginator->sort('created', 'Created');?></th>
 			<th><?php echo $this->Paginator->sort('modified','Last Update');?></th>
 			<th><?php echo $this->Paginator->sort('role','Role');?></th>
@@ -21,7 +22,8 @@
 		<?php endif; ?>
 			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
 			<td><?php echo $this->Html->link( $user['User']['username']  ,   array('action'=>'edit', $user['User']['id']),array('escape' => false) );?></td>
-			<td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['store_name']; ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['store_number']; ?></td>
 			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['created']); ?></td>
 			<td style="text-align: center;"><?php echo $this->Time->niceShort($user['User']['modified']); ?></td>
 			<td style="text-align: center;"><?php echo $user['User']['role']; ?></td>

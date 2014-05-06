@@ -94,7 +94,20 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
-.navbar-inverse{ background-color:#8FC16C; border-color:#8FC16C;}
+.navbar-inverse{ background-color:#8FC16C; border-bottom:20px solid #218750;}
 .navbar-inverse .navbar-toggle{ border-color:#FFF;}
 .navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus{ background-color:#FFF;}
 .navbar-inverse .navbar-toggle:hover .icon-bar,.navbar-inverse .navbar-toggle:focus .icon-bar{ background-color:#8FC16C;}
+.navbar-brand{ height:78px;}
+#default.container-main,#default-dashboard.container-main{ margin-top:48px;}
+.navbar-inverse .navbar-nav > li > a{ font-weight:normal; color:#000; line-height:48px;} 
+.login-text a{ color:#fff !important;}
+.free-trial a{  background-color: #218750; border-radius: 0.25em; margin-top:25px; line-height:1px !important;
+    color: #FFFFFF !important;
+    display: inline;    
+    padding: 0.2em 0.6em 0.3em;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;}
+.free-trial a:hover{  background-color: #2e9c61 !important; border-radius: 0.25em !important;}
+	

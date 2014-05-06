@@ -47,7 +47,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	?>
 </head>
 <body>
-<div id="container">
+<div id="container default">
 	 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -57,21 +57,23 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#"><?php echo $this->Html->image('logo.png'); ?></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><?php echo $this->Html->link('Home', array('controller'=>'pages','action'=>'display','home')); ?></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Support</a></li>
-            <li><?php if($logged_in){
+            <li><a href="#">Pricing</a></li>  
+            <li><a href="#">Support</a></li>               
+            <li class="login-text"><?php if($logged_in){
                      echo $this->Html->link('Logout', array('controller'=>'users','action'=>'logout'));
                       
                     }else{
-                      echo $this->Html->link('Login', array('controller'=>'users','action'=>'login'));
+                      echo $this->Html->link('Client Login', array('controller'=>'users','action'=>'login'));
                     }
                       ?></li>
+            <li class="free-trial"><?php if(!$logged_in){ echo $this->Html->link('Start Freen Trial', array('controller'=>'users','action'=>'register'));} ?></li>
           </ul>
           <!-- <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
@@ -80,13 +82,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        
-        <div class="col-sm-12 main">
+    <div class="container-main" id="default">
+      
           	 <?php echo $this->Session->flash(); ?>            
 			       <?php echo $this->fetch('content'); ?>
-        </div>
+        
       </div>
     </div>
 	<div id="footer">

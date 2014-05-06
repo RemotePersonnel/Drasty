@@ -10,13 +10,37 @@ class UsersController extends AppController {
 	
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('login','add'); 
+        $this->Auth->allow('login');
+        $this->Auth->allow('register'); 
     }
-	
 
+    public function register() {
+
+    	$this->layout = 'default';
+        if ($this->request->is('post')) {
+		
+        	$data = array();
+        	$data = $this->request->data;
+        	$data['User']['role'] = 'client';
+        	
+        	/*pr($data);
+        	die();*/
+
+			$this->User->create();
+			if ($this->User->saveAssociated($data)) {
+				$this->Session->setFlash(__('You have registered successfully for free trial !'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+
+				$this->Session->setFlash(__('Oops ! Please, try again.'));
+			}	
+        }
+    }
 
 	public function login() {
 		
+		$this->layout = 'default';
+
 		//if already logged-in, redirect
 		if($this->Session->check('Auth.User')){
 			$this->redirect(array('action' => 'index'));		
@@ -60,6 +84,8 @@ class UsersController extends AppController {
 
 
     public function add() {
+
+
         if ($this->request->is('post')) {
 				
 			$this->User->create();
