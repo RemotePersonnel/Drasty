@@ -49,9 +49,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>vendor/plugins/formswitch/css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>vendor/plugins/chosen/chosen.min.css">
 
+
   <script type="text/javascript" src="<?php echo $this->webroot; ?>vendor/bootstrap/holder.js"></script> 
   <script type="text/javascript" src="<?php echo $this->webroot; ?>vendor/bootstrap/paginator/src/bootstrap-paginator.js"></script>
   <script type="text/javascript" src="<?php echo $this->webroot; ?>vendor/plugins/datepicker/bootstrap-datepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>vendor/plugins/formswitch/css/bootstrap-switch.css">
   <!-- 
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js"></script>

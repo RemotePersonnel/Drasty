@@ -253,119 +253,7 @@ dd {
 	vertical-align: top;
 }
 
-/** Forms **/
-form {
-	clear: both;
-	margin-right: 20px;
-	padding: 0;
-	width: 95%;
-}
-fieldset {
-	border: none;
-	margin-bottom: 1em;
-	padding: 16px 10px;
-}
-fieldset legend {
-	color: #e32;
-	font-size: 160%;
-	font-weight: bold;
-}
-fieldset fieldset {
-	margin-top: 0;
-	padding: 10px 0 0;
-}
-fieldset fieldset legend {
-	font-size: 120%;
-	font-weight: normal;
-}
-fieldset fieldset div {
-	clear: left;
-	margin: 0 20px;
-}
-form div {
-	clear: both;
-	margin-bottom: 1em;
-	padding: .5em;
-	vertical-align: text-top;
-}
-form .input {
-	color: #444;
-}
-form .required {
-	font-weight: bold;
-}
-form .required label:after {
-	color: #e32;
-	content: '*';
-	display:inline;
-}
-form div.submit {
-	border: 0;
-	clear: both;
-	margin-top: 10px;
-}
-label {
-	display: block;
-	font-size: 110%;
-	margin-bottom:3px;
-}
-input, textarea {
-	clear: both;
-	font-size: 140%;
-	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
-	padding: 1%;
-	width:98%;
-}
-select {
-	clear: both;
-	font-size: 120%;
-	vertical-align: text-bottom;
-}
-select[multiple=multiple] {
-	width: 100%;
-}
-option {
-	font-size: 120%;
-	padding: 0 3px;
-}
-input[type=checkbox] {
-	clear: left;
-	float: left;
-	margin: 0px 6px 7px 2px;
-	width: auto;
-}
-div.checkbox label {
-	display: inline;
-}
-input[type=radio] {
-	float:left;
-	width:auto;
-	margin: 6px 0;
-	padding: 0;
-	line-height: 26px;
-}
-.radio label {
-	margin: 0 0 6px 20px;
-	line-height: 26px;
-}
-input[type=submit] {
-	display: inline;
-	font-size: 110%;
-	width: auto;
-}
-form .submit input[type=submit] {
-	background:#62af56;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
-	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
-	background-image: -moz-linear-gradient(top, #76BF6B, #3B8230);
-	border-color: #2d6324;
-	color: #fff;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
-	padding: 8px 10px;
-}
-form .submit input[type=submit]:hover {
-	background: #5BA150;
-}
+
 /* Form errors */
 form .error {
 	background: #FFDACC;
@@ -741,3 +629,4 @@ pre {
 .col-md-6 .col-md-12{ padding:0px !important;}
 #store-detail-container .col-md-6{ width:50%; float:left;}
 #store-hours-container td{ height:50px;}
+.form-horizontal .form-group{ margin-left:0px !important; margin-right:0px !important;}

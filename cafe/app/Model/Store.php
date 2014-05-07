@@ -15,7 +15,8 @@ class Store extends AppModel {
 					'rule'    => array('isUniqueStorename'),
 					'message' => 'This storename is already in use'
 				)
-	        )
+	        ),
+		
 	);
 
 	function isUniqueStorename($check) {

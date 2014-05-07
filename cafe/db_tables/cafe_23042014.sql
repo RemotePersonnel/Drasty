@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 06, 2014 at 12:50 PM
+-- Generation Time: May 07, 2014 at 01:04 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -59,17 +59,7 @@ CREATE TABLE IF NOT EXISTS `registrations` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
-
---
--- Dumping data for table `registrations`
---
-
-INSERT INTO `registrations` (`id`, `client_name`, `client_email`, `newsletter`, `created`, `modified`) VALUES
-(1, 'asdasd', 'asd@dsf.com', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'asdasd', 'asd123@dsf.com', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 'testclient', 'test@test.com', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'test', 'test123@test.com', 0, '2014-04-30 12:00:24', '2014-04-30 12:00:24');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -90,24 +80,52 @@ CREATE TABLE IF NOT EXISTS `stores` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `stores`
 --
 
 INSERT INTO `stores` (`id`, `user_id`, `status`, `name`, `slogan`, `contact`, `suburb`, `state`, `postcode`, `created`, `modified`) VALUES
-(1, 6, 1, '', '', '', '', '', '', '2014-05-05 10:36:23', '2014-05-05 10:36:23'),
-(2, 7, 1, '', '', '', '', '', '', '2014-05-05 10:36:59', '2014-05-05 10:36:59'),
-(3, 8, 1, '', '', '', '', '', '', '2014-05-05 10:40:52', '2014-05-05 10:40:52'),
-(4, 9, 1, '', '', '', '', '', '', '2014-05-05 10:44:30', '2014-05-05 10:44:30'),
-(5, 10, 1, '', '', '', '', '', '', '2014-05-05 10:46:22', '2014-05-05 10:46:22'),
-(6, 11, 1, '', '', '', '', '', '', '2014-05-05 10:47:17', '2014-05-05 10:47:17'),
-(7, 12, 1, '', '', '', '', '', '', '2014-05-05 10:49:44', '2014-05-05 10:49:44'),
-(8, 13, 1, '', '', '', '', '', '', '2014-05-05 10:52:25', '2014-05-05 10:52:25'),
-(9, 14, 1, 'dsf', '', '', '', '', '', '2014-05-05 10:55:26', '2014-05-05 10:55:26'),
-(10, 15, 1, 'asdasd', '', '', '', '', '', '2014-05-05 10:56:35', '2014-05-05 10:56:35'),
-(11, 16, 1, 'abcd', '', '', '', '', '', '2014-05-05 11:14:43', '2014-05-05 11:14:43');
+(1, 17, 1, 'Remote App', 'Remoteapp slogan', 'Remoteapp contact', 'Remoteapp slogan', 'Remoteapp state', 'Remoteapp postcode', '2014-05-07 10:05:16', '2014-05-07 12:56:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store_services`
+--
+
+CREATE TABLE IF NOT EXISTS `store_services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) CHARACTER SET utf8 NOT NULL,
+  `from` time NOT NULL,
+  `to` time NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store_service_hours`
+--
+
+CREATE TABLE IF NOT EXISTS `store_service_hours` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `sun` time NOT NULL,
+  `mon` time NOT NULL,
+  `tues` time NOT NULL,
+  `wed` time NOT NULL,
+  `thurs` time NOT NULL,
+  `fri` time NOT NULL,
+  `sat` time NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -126,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `modified` datetime DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `users`
@@ -134,21 +152,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `store_number`, `package`, `role`, `created`, `modified`, `status`) VALUES
 (1, 'drasty@openxcell.info', 'f99c67e80408c56ef1e41f411fb478044eaf2165', 'more than 30', 1, 'admin', '2014-04-30 11:37:25', '2014-04-30 11:37:25', 1),
-(2, 'test@test.com', 'c7e23b68746b94946457fc23ac6f7f6871d48523', '1 store', 1, 'client', '2014-04-30 11:40:37', '2014-04-30 11:40:37', 1),
-(3, 'ty@df.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 10:22:40', '2014-05-05 10:22:40', 1),
-(4, 'dfg@erg.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 10:25:27', '2014-05-05 10:25:27', 1),
-(5, 'sd@rth.com', '3b0e8a242c73a1a066a5f413e261778828680fd4', '1 store', 1, 'client', '2014-05-05 10:28:29', '2014-05-05 10:28:29', 1),
-(6, 'dfgdf@gmail.com', 'd187aec787a8893ecf6557718efec7ba5b8e6474', '1 store', 1, 'client', '2014-05-05 10:36:23', '2014-05-05 10:36:23', 1),
-(7, 'ssdfsdf@gmail.com', '89c83fe2130ac25957d5928390c616f629492344', '2-10', 1, 'client', '2014-05-05 10:36:59', '2014-05-05 10:36:59', 1),
-(8, 'aaaa@aaa.com', '89c83fe2130ac25957d5928390c616f629492344', '10-30', 1, 'client', '2014-05-05 10:40:52', '2014-05-05 10:40:52', 1),
-(9, 'fg2@SF.COM', '2a76308fbd9b882aa9cf945397409ae73ae100ab', '2-10', 1, 'client', '2014-05-05 10:44:30', '2014-05-05 10:44:30', 1),
-(10, 'ASDAS@GMAIL.COM', '86115e2edbb560e57cfa6a0f9fb3c47680289a29', '2-10', 1, 'client', '2014-05-05 10:46:22', '2014-05-05 10:46:22', 1),
-(11, 'dfg@gmail.com', '9600e489c3c7ca141c8378ce1e655312eff7fc82', '1 store', 1, 'client', '2014-05-05 10:47:16', '2014-05-05 10:47:16', 1),
-(12, 'sdf@rth.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 10:49:44', '2014-05-05 10:49:44', 1),
-(13, 'asd@esf.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 10:52:25', '2014-05-05 10:52:25', 1),
-(14, 'wed@reg.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 10:55:26', '2014-05-05 10:55:26', 1),
-(15, 'asd@erf.com', '82f200155dda36fe5c59455c2b98cb684a4924c6', '1 store', 1, 'client', '2014-05-05 10:56:35', '2014-05-05 10:56:35', 1),
-(16, 'abcd@xyz.com', '89c83fe2130ac25957d5928390c616f629492344', '1 store', 1, 'client', '2014-05-05 11:14:43', '2014-05-05 11:14:43', 1);
+(17, 'remoteapp@test.com', 'c7e23b68746b94946457fc23ac6f7f6871d48523', '1 store', 1, 'client', '2014-05-07 10:05:16', '2014-05-07 10:05:16', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
